@@ -277,7 +277,7 @@ class RcloneTransferHelper:
             else:
                 destination = f"{oremote}:{self.name}"
 
-            cmd = [bot_cache['pkgs'][3], 'link', '--config', oconfig_path, destination]
+            cmd = [bot_cache['pkgs'][3], '--config', oconfig_path, destination]
             res, err, code = await cmd_exec(cmd)
 
             if code == 0:
@@ -335,7 +335,7 @@ class RcloneTransferHelper:
                 if mime_type != 'Folder':
                     destination += f'/{self.name}' if dst_path else self.name
 
-                cmd = [bot_cache['pkgs'][3], 'link', '--config', config_path, destination]
+                cmd = [bot_cache['pkgs'][3], '--config', config_path, destination]
                 res, err, code = await cmd_exec(cmd)
 
                 if self.__is_cancelled:
